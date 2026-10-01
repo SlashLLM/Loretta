@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Loretta Chen — Global Executive, Technopreneur, Educator, Author</title>
+  <meta name="description"
+    content="Dr. Loretta Chen: global executive, technopreneur, educator, author and cultural strategist, operating where technology, leadership, culture and human possibility intersect." />
+
+  <!-- Google Fonts: Archivo (900 Heavy Display Neo-Grotesque), Space Grotesk, Inter, Permanent Marker -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,800;0,900;1,800;1,900&family=Inter:wght@400;500;700;800;900&family=Permanent+Marker&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Hero portrait drives the scroll sequence from the first frame -->
+  <link rel="preload" as="image" href="./images/loretta-portrait.jpg" fetchpriority="high" />
+
+  <style>
+    /* ==========================================================================
+       GIGANTIC DESIGN SYSTEM TOKENS
+       Punk-rock candy wrapper shouting on warm cream paper
+       ========================================================================== */
+    :root {
+      /* Colors */
+      --color-ink-black: #231f20;
+      --color-cream-paper: #f0ede7;
+      --color-pure-white: #ffffff;
+      --color-blast-red: #ff634b;
+      --color-true-black: #000000;
+
+      /* Typography Families */
+      --font-hero: 'Neue Haas Grotesk Display', 'Archivo', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-script: 'Permanent Marker', cursive, sans-serif;
+      --font-body: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+      /* Typography Scale & Tracking */
+      --text-caption: 12px;
+      --tracking-caption: 0.0160em;
+
+      --text-body-sm: 14px;
+      --tracking-body-sm: 0.0250em;
+
+      --text-body: 16px;
+      --tracking-body: 0.0310em;
+
+      --text-subheading: 18px;
+      --tracking-subheading: 0.0310em;
+
+      --text-heading-sm: 24px;
+      --tracking-heading-sm: 0.0360em;
+
+      --text-heading-lg: 32px;
+      --tracking-heading-lg: 0.0500em;
+
+      /* Hero Display Typography matching Gigantic Reference */
+      --text-hero: clamp(64px, 12.5vw, 168px);
+      --leading-hero: 0.88;
+      --tracking-hero: -0.015em;
+
+      /* Weights */
+      --weight-regular: 400;
+      --weight-medium: 500;
+      --weight-bold: 700;
+      --weight-black: 900;
+
+      /* Spacing & Layout */
+      --page-max-width: 1200px;
+      --section-gap: 80px;
+
+      /* 0px Radius Everywhere & 0px Elevation (Flat) */
+      --radius-all: 0px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      /* No scroll-behavior: smooth — it double-animates against lenis.scrollTo */
+      background-color: var(--color-cream-paper);
+    }
+
+    body {
+      background-color: var(--color-cream-paper);
+      color: var(--color-ink-black);
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      line-height: 1.6;
+      letter-spacing: var(--tracking-body);
+      /* clip, not hidden: hidden would make body a scroll container and kill sticky */
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: var(--color-ink-black);
+      color: var(--color-pure-white);
+    }
+
+    .layout-container {
+      max-width: var(--page-max-width);
+      margin: 0 auto;
+      padding: 0 clamp(16px, 4vw, 32px);
+      position: relative;
+    }
+
+    /* Risograph / Halftone Grain Overlay */
+    .halftone-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(35, 31, 32, 0.08) 1px, transparent 0);
+      background-size: 6px 6px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .dark-halftone-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(240, 237, 231, 0.12) 1.2px, transparent 0);
+      background-size: 8px 8px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ==========================================================================
+       1. TOP ANNOUNCEMENT BAR (TICKER)
+       ========================================================================== */
+    .announcement-bar {
+      background-color: var(--color-pure-white);
+      border-bottom: 1px solid var(--color-ink-black);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      position: relative;
+      z-index: 40;
+    }
+
+    .ticker-wrapper {
+      display: inline-flex;
+      animation: ticker-slide 28s linear infinite;
+    }
+
+    .ticker-wrapper:hover {
+      animation-play-state: paused;
+    }
+
+    .ticker-content {
+      display: inline-flex;
+      align-items: center;
+      gap: 28px;
+      font-size: var(--text-body-sm);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-body-sm);
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+      padding-right: 28px;
+    }
+
+    .ticker-bullet {
+      color: var(--color-blast-red);
+      font-size: 16px;
+    }
+
+    @keyframes ticker-slide {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ==========================================================================
+       2. MINIMAL NAV BAR
+       ========================================================================== */
+    .site-nav {
+      background-color: var(--color-cream-paper);
+      padding: 24px 0;
+      position: relative;
+      z-index: 30;
+      border-bottom: 1px solid rgba(35, 31, 32, 0.1);
+    }
+
+    .nav-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-links-left {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-link-item {
+      text-decoration: none;
+      font-size: var(--text-body-sm);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-body-sm);
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+      transition: opacity 0.15s ease;
+    }
+
+    .nav-link-item:hover {
+      opacity: 0.6;
+    }
+
+    .brand-wordmark {
+      text-decoration: none;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .brand-script-logo {
+      font-family: var(--font-script);
+      font-size: clamp(26px, 4vw, 38px);
+      color: var(--color-ink-black);
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      transform: rotate(-3deg);
+      display: inline-block;
+    }
+
+    .brand-stamp-sub {
+      font-size: 10px;
+      font-weight: var(--weight-black);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-blast-red);
+      margin-top: 4px;
+    }
+
+    .nav-right-actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-icon-link {
+      color: var(--color-ink-black);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.15s ease;
+    }
+
+    .nav-icon-link:hover {
+      opacity: 0.6;
+    }
+
+    .nav-btn-action {
+      background-color: var(--color-ink-black);
+      color: var(--color-pure-white);
+      border: 1px solid var(--color-ink-black);
+      border-radius: 0px;
+      padding: 10px 18px;
+      font-size: var(--text-body-sm);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-body-sm);
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-btn-action:hover {
+      background-color: var(--color-pure-white);
+      color: var(--color-ink-black);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--color-ink-black);
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: var(--weight-bold);
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    /* Mobile Overlay Menu */
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: var(--color-cream-paper);
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      padding: 32px;
+    }
+
+    .mobile-overlay.is-active {
+      display: flex;
+    }
+
+    .mobile-overlay-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--color-ink-black);
+      padding-bottom: 16px;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .mobile-nav-link {
+      font-family: var(--font-hero);
+      font-size: 36px;
+      font-weight: var(--weight-black);
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--color-ink-black);
+    }
+
+    /* ==========================================================================
+       BUTTON SYSTEM
+       ========================================================================== */
+    .btn-filled-ink {
+      background-color: var(--color-ink-black);
+      color: var(--color-pure-white);
+      border: 1px solid var(--color-ink-black);
+      border-radius: 0px;
+      padding: 16px 26px;
+      font-family: var(--font-body);
+      font-size: var(--text-body);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-body);
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      width: fit-content;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .btn-filled-ink:hover {
+      background-color: var(--color-pure-white);
+      color: var(--color-ink-black);
+    }
+
+    .btn-outline-ink {
+      background-color: transparent;
+      color: var(--color-ink-black);
+      border: 1px solid var(--color-ink-black);
+      border-radius: 0px;
+      padding: 15px 19px;
+      font-family: var(--font-body);
+      font-size: var(--text-body-sm);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-body-sm);
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .btn-outline-ink:hover {
+      background-color: var(--color-ink-black);
+      color: var(--color-pure-white);
+    }
+
+    /* ==========================================================================
+       3. HERO SCROLL RIG (KNOCKOUT HEADLINE -> FULL-BLEED PORTRAIT -> MANIFESTO)
+       The headline is a hole cut out of the Blast Red panel; the portrait shows
+       through it. Static by default — .rig-on (set by JS) enables the pinned
+       scroll sequence, so no-JS / reduced-motion / mobile still get a real page.
+       ========================================================================== */
+    .hero-rig {
+      position: relative;
+      z-index: 2;
+      /* above .halftone-overlay, which is z-index 1 */
+    }
+
+    /* The knockout is aria-hidden decoration, so carry the real h1 for AT */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    #heroFontProbe {
+      position: absolute;
+      visibility: hidden;
+      pointer-events: none;
+      font-family: 'Archivo', sans-serif;
+      font-size: var(--text-hero);
+    }
+
+    .hero-stage {
+      position: relative;
+      background-color: var(--color-ink-black);
+      /* what the shrinking photo reveals */
+    }
+
+    .hero-canvas {
+      position: relative;
+      min-height: calc(88vh - 100px);
+      background-color: var(--color-blast-red);
+      color: var(--color-pure-white);
+      overflow: hidden;
+    }
+
+    /* Backdrop seen through the letter-holes in static mode */
+    .hero-photo-bleed {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      filter: grayscale(100%) contrast(120%);
+    }
+
+    .hero-knockout {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Pinned to Archivo, NOT var(--font-hero): that leads with a face the page
+       never loads, so glyph widths — which the zoom is measured off — would
+       differ on any machine that happens to have it installed locally. */
+    .knockout-text {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.015em;
+    }
+
+    .knockout-red {
+      fill: var(--color-blast-red);
+    }
+
+    /* Animated portrait — rig mode only. Rest geometry equals the manifesto
+       slot exactly, so full-bleed is a uniform scale+translate off that rest
+       state: no layout, no repaint, no crop shift. */
+    .hero-photo-frame {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 300px;
+      height: 400px;
+      /* overwritten by layout() */
+      display: none;
+      opacity: 0;
+      overflow: hidden;
+      pointer-events: none;
+      transform-origin: 50% 50%;
+      will-change: transform;
+      backface-visibility: hidden;
+      transition: opacity 0.4s ease;
+    }
+
+    .hero-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+      filter: grayscale(100%) contrast(120%);
+    }
+
+    .is-ready .hero-photo-frame {
+      opacity: 1;
+    }
+
+    /* ---- RIG MODE ---- */
+    .rig-on .hero-rig {
+      height: 320vh;
+    }
+
+    .rig-on .hero-stage {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      /* on the sticky element itself — safe */
+      contain: paint;
+    }
+
+    /* Red must come ONLY from the masked <rect>. A red background here would
+       paint behind the mask and fill the letter-holes with red, not photo. */
+    .rig-on .hero-canvas {
+      position: absolute;
+      inset: 0;
+      min-height: 0;
+      background-color: transparent;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .rig-on .hero-photo-bleed {
+      display: none;
+    }
+
+    .rig-on .hero-photo-frame {
+      display: block;
+      z-index: 2;
+    }
+
+    /* Centered with translateX(-50%), so render() must write the full
+       translate(-50%, Ypx) — a bare translateY would jump it 50% right. */
+    .hero-bottom-prompt {
+      position: absolute;
+      left: 50%;
+      bottom: clamp(28px, 6vh, 56px);
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      z-index: 4;
+      pointer-events: auto;
+      will-change: opacity, transform;
+    }
+
+    .hero-bottom-label {
+      font-size: var(--text-caption);
+      font-weight: var(--weight-black);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-cream-paper);
+      opacity: 0.95;
+    }
+
+    .hero-down-arrow {
+      color: var(--color-blast-red);
+      background-color: var(--color-pure-white);
+      font-family: var(--font-hero);
+      font-weight: var(--weight-black);
+      font-size: 16px;
+      line-height: 1;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: 1px solid var(--color-pure-white);
+      animation: bounce 1.8s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(6px);
+      }
+    }
+
+    .hero-pause-indicator {
+      position: absolute;
+      right: 28px;
+      bottom: 28px;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--color-pure-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: var(--weight-bold);
+      color: var(--color-pure-white);
+      background: rgba(255, 99, 75, 0.4);
+      cursor: pointer;
+      z-index: 4;
+      pointer-events: auto;
+    }
+
+    /* ==========================================================================
+       4. SECTION HEADER BLOCK (PUNCHY MANIFESTO)
+       ========================================================================== */
+    .section-manifesto {
+      padding: 60px 0;
+      border-top: 1px solid var(--color-ink-black);
+      border-bottom: 1px solid var(--color-ink-black);
+      background-color: var(--color-cream-paper);
+      text-align: center;
+    }
+
+    /* ---- The landing panel's portrait target ----
+       3/4 == the 1200x1600 source, so object-fit: cover crops nothing and the
+       crop stays identical from full-bleed all the way down to the slot. */
+    .portrait-slot {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background-color: var(--color-pure-white);
+      /* white matte + cream hairline drawn OUTSIDE the border box, echoing the
+         removed section's framed portrait. The landed photo covers the content
+         box exactly, so it never hides them. */
+      box-shadow: 0 0 0 12px var(--color-pure-white),
+        0 0 0 14px var(--color-cream-paper);
+    }
+
+    .portrait-slot-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+      filter: grayscale(100%) contrast(120%);
+    }
+
+    .directing-copy {
+      will-change: opacity, transform;
+    }
+
+    /* The sticker exists twice: this one rides the slot in static mode... */
+    .rig-on .portrait-slot .flavor-sticker {
+      display: none;
+    }
+
+    /* ...and this one is used in rig mode, where it MUST live at stage level:
+       .portrait-slot sits inside .directing-pinned (z-index 1) and so could
+       never paint above the animated photo frame (z-index 2). layout() places
+       it from the measured slot rect. */
+    .landed-sticker {
+      position: absolute;
+      display: none;
+      z-index: 2;
+      /* same as the frame, later in DOM => paints above */
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .rig-on .landed-sticker {
+      display: block;
+    }
+
+    .rig-on .directing-pinned {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0;
+    }
+
+    .rig-on .directing-pinned .layout-container {
+      width: 100%;
+    }
+
+    .rig-on .directing-copy {
+      opacity: 0;
+    }
+
+    .rig-on .portrait-slot-img {
+      display: none;
+    }
+
+    /* the animated frame supplies the photo */
+
+    /* Height-driven in rig mode so the copy column and the portrait both fit
+       inside 100vh on short screens. Aspect stays 3/4, so the crop is unchanged. */
+    .rig-on .portrait-slot {
+      opacity: 0;
+      width: auto;
+      height: 72vh;
+      max-width: 100%;
+      margin-inline: auto;
+    }
+
+    .manifesto-seal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background-color: var(--color-blast-red);
+      color: var(--color-cream-paper);
+      font-family: var(--font-script);
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .manifesto-lead {
+      font-family: var(--font-hero);
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: var(--weight-black);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      max-width: 900px;
+      margin: 0 auto 16px;
+    }
+
+    .manifesto-body {
+      font-size: var(--text-body);
+      font-weight: var(--weight-medium);
+      line-height: 1.7;
+      letter-spacing: var(--tracking-body);
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       5. FULL-BLEED DARK FEATURE SECTION
+       ========================================================================== */
+    .dark-feature-section {
+      background-color: var(--color-ink-black);
+      color: var(--color-cream-paper);
+      padding: clamp(60px, 10vw, 110px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dark-feature-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .dark-feature-tag {
+      display: inline-block;
+      font-size: var(--text-caption);
+      font-weight: var(--weight-black);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-blast-red);
+      border: 1px solid var(--color-blast-red);
+      padding: 4px 10px;
+      margin-bottom: 20px;
+    }
+
+    .dark-feature-heading {
+      font-family: var(--font-hero);
+      font-size: clamp(38px, 5.5vw, 68px);
+      font-weight: var(--weight-black);
+      line-height: 0.96;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--color-cream-paper);
+      margin-bottom: 24px;
+    }
+
+    .dark-feature-body {
+      font-size: var(--text-body);
+      font-weight: var(--weight-medium);
+      line-height: 1.7;
+      letter-spacing: var(--tracking-body);
+      color: #cfcac2;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .dark-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      border-top: 1px solid rgba(240, 237, 231, 0.2);
+      padding-top: 24px;
+      margin-bottom: 32px;
+    }
+
+    .dark-stat-num {
+      font-family: var(--font-hero);
+      font-size: 36px;
+      font-weight: var(--weight-black);
+      color: var(--color-blast-red);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .dark-stat-label {
+      font-size: 11px;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-cream-paper);
+    }
+
+    /* .dark-feature-visual / .dark-feature-img removed with the standalone
+       section — .portrait-slot is the framed portrait now. */
+
+    .flavor-sticker {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background-color: var(--color-blast-red);
+      color: var(--color-cream-paper);
+      padding: 12px 18px;
+      font-family: var(--font-hero);
+      font-size: 13px;
+      font-weight: var(--weight-black);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 2px solid var(--color-ink-black);
+      transform: rotate(3deg);
+    }
+
+    /* ==========================================================================
+       6. 4-COLUMN PRODUCT GRID
+       ========================================================================== */
+    .works-section {
+      padding: var(--section-gap) 0;
+      background-color: var(--color-cream-paper);
+    }
+
+    .section-title-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--color-ink-black);
+      padding-bottom: 20px;
+    }
+
+    .section-title-lg {
+      font-family: var(--font-hero);
+      font-size: var(--text-heading-lg);
+      font-weight: var(--weight-black);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+    }
+
+    .section-subtitle-tag {
+      font-size: var(--text-body-sm);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-body-sm);
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+    }
+
+    .product-grid-4col {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card-item {
+      display: flex;
+      flex-direction: column;
+      background: transparent;
+      border: none;
+      border-radius: 0px;
+    }
+
+    .product-image-canvas {
+      background-color: var(--color-pure-white);
+      border: 1px solid var(--color-ink-black);
+      height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .product-image-canvas img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.2s ease;
+    }
+
+    .product-card-item:hover .product-image-canvas img {
+      transform: scale(1.04);
+    }
+
+    .flavor-tag-corner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: var(--color-ink-black);
+      color: var(--color-pure-white);
+      font-size: 10px;
+      font-weight: var(--weight-black);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+    }
+
+    .flavor-tag-corner.red {
+      background-color: var(--color-blast-red);
+      color: var(--color-cream-paper);
+    }
+
+    .product-sku-meta {
+      font-size: 11px;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+      margin-bottom: 6px;
+      opacity: 0.7;
+    }
+
+    .product-card-title {
+      font-family: var(--font-hero);
+      font-size: var(--text-heading-sm);
+      font-weight: var(--weight-black);
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+      margin-bottom: 12px;
+    }
+
+    .product-card-desc {
+      font-size: var(--text-body-sm);
+      font-weight: var(--weight-regular);
+      line-height: 1.5;
+      letter-spacing: var(--tracking-body-sm);
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    /* ==========================================================================
+       7. KEYNOTES TABLE
+       ========================================================================== */
+    .speaking-section {
+      padding: var(--section-gap) 0;
+      background-color: var(--color-cream-paper);
+      border-top: 1px solid var(--color-ink-black);
+    }
+
+    .punk-table {
+      width: 100%;
+      border-top: 1px solid var(--color-ink-black);
+    }
+
+    .punk-row {
+      display: grid;
+      grid-template-columns: 80px 220px 1fr 180px;
+      align-items: center;
+      padding: 24px 12px;
+      border-bottom: 1px solid var(--color-ink-black);
+      transition: background-color 0.15s ease;
+      gap: 20px;
+    }
+
+    .punk-row:hover {
+      background-color: var(--color-pure-white);
+    }
+
+    .punk-row-num {
+      font-family: var(--font-hero);
+      font-size: 22px;
+      font-weight: var(--weight-black);
+      color: var(--color-blast-red);
+    }
+
+    .punk-row-type {
+      font-size: 12px;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+    }
+
+    .punk-row-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .punk-row-title {
+      font-family: var(--font-hero);
+      font-size: 20px;
+      font-weight: var(--weight-black);
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+    }
+
+    .punk-row-sub {
+      font-size: 13px;
+      font-weight: var(--weight-regular);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    .punk-row-action {
+      text-align: right;
+    }
+
+    /* ==========================================================================
+       8. CONTACT FORM TERMINAL
+       ========================================================================== */
+    .contact-section {
+      padding: var(--section-gap) 0;
+      background-color: var(--color-cream-paper);
+      border-top: 1px solid var(--color-ink-black);
+    }
+
+    .contact-grid-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-left-heading {
+      font-family: var(--font-hero);
+      font-size: clamp(32px, 4.5vw, 56px);
+      font-weight: var(--weight-black);
+      line-height: 0.98;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+      margin-bottom: 24px;
+    }
+
+    .contact-left-body {
+      font-size: var(--text-body);
+      line-height: 1.7;
+      letter-spacing: var(--tracking-body);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-info-item {
+      border: 1px solid var(--color-ink-black);
+      padding: 16px 20px;
+      background-color: var(--color-pure-white);
+    }
+
+    .contact-info-label {
+      font-size: 10px;
+      font-weight: var(--weight-black);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-blast-red);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-info-val {
+      font-size: 16px;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+      text-decoration: none;
+    }
+
+    .contact-form-box {
+      border: 1px solid var(--color-ink-black);
+      background-color: var(--color-pure-white);
+      padding: 36px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-ink-black);
+      margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      border: 1px solid var(--color-ink-black);
+      border-radius: 0px;
+      padding: 14px 16px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      background-color: var(--color-cream-paper);
+      color: var(--color-ink-black);
+      outline: none;
+      box-sizing: border-box;
+      text-transform: uppercase;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      background-color: var(--color-pure-white);
+      border-width: 2px;
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* ==========================================================================
+       9. FULL-BLEED BLAST RED FOOTER BAND
+       ========================================================================== */
+    .footer-band {
+      background-color: var(--color-blast-red);
+      color: var(--color-cream-paper);
+      padding: 60px 0 40px;
+      position: relative;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 28px;
+    }
+
+    .footer-brand-statement {
+      font-family: var(--font-hero);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: var(--weight-black);
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: var(--color-cream-paper);
+      max-width: 900px;
+    }
+
+    .footer-links-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      margin: 12px 0;
+    }
+
+    .footer-link {
+      font-size: var(--text-body-sm);
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-pure-white);
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+
+    .footer-link:hover {
+      opacity: 0.7;
+    }
+
+    .footer-bottom-bar {
+      width: 100%;
+      border-top: 1px solid rgba(240, 237, 231, 0.3);
+      padding-top: 24px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: var(--weight-bold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-cream-paper);
+    }
+
+    /* Responsive */
+    .brand-script-logo {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1100px) {
+      .nav-links-left {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      /* hidden list leaves the grid, so re-flow to brand | actions */
+      .nav-inner {
+        grid-template-columns: auto 1fr;
+      }
+
+      .brand-wordmark {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .product-grid-4col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dark-feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-slot {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+
+      .punk-row {
+        grid-template-columns: 60px 140px 1fr auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .nav-links-left,
+      .nav-right-actions .nav-icon-link,
+      .nav-right-actions .nav-btn-action {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .product-grid-4col {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .punk-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .punk-row-action {
+        text-align: left;
+      }
+
+      .footer-bottom-bar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      /* Rig is off below 769px (see sync()); lay the hero out as flow content */
+      .portrait-slot {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .hero-canvas {
+        min-height: 72vh;
+      }
+
+      .section-title-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+
+    /* Phones: tighter rhythm, compact rows, thumb-sized targets */
+    @media (max-width: 600px) {
+      :root {
+        --section-gap: 56px;
+      }
+
+      .site-nav { padding: 14px 0; }
+      .mobile-menu-btn { min-height: 44px; padding: 10px 16px; }
+      .mobile-overlay { padding: 20px 16px; }
+      .mobile-nav-list { margin-top: 28px; gap: 4px; }
+      .mobile-nav-link { font-size: 30px; display: block; padding: 6px 0; }
+
+      .hero-canvas { min-height: 64svh; }
+      .hero-pause-indicator { right: 16px; bottom: 16px; }
+
+      .section-manifesto { padding: 48px 0; }
+      .section-title-wrap { margin-bottom: 28px; padding-bottom: 16px; }
+      .section-title-lg { font-size: 28px; line-height: 1.05; }
+
+      .dark-stats-grid { gap: 8px; }
+      .dark-stat-num { font-size: 24px; }
+      .dark-stat-label { font-size: 10px; }
+
+      .product-grid-4col { gap: 40px; }
+      .product-image-canvas { height: 300px; padding: 20px; margin-bottom: 16px; }
+
+      /* Num + type share a line; title and action run full width beneath */
+      .punk-row { grid-template-columns: auto 1fr; gap: 8px 14px; padding: 20px 0; }
+      .punk-row-num { font-size: 18px; }
+      .punk-row-title-wrap, .punk-row-action { grid-column: 1 / -1; }
+      .punk-row-title { font-size: 19px; }
+
+      /* 16px stops iOS Safari zooming the page on focus */
+      .form-input, .form-select, .form-textarea { font-size: 16px; }
+      .contact-form-box { padding: 20px; }
+
+      .footer-band { padding: 48px 0 32px; }
+      .footer-links-row { gap: 4px; }
+      .footer-link { padding: 10px 12px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Risograph / Halftone Pattern -->
+  <div class="halftone-overlay"></div>
+
+  <!-- 1. TOP ANNOUNCEMENT BAR (TICKER) -->
+  <aside class="announcement-bar" aria-label="Announcement ticker">
+    <div class="ticker-wrapper">
+      <div class="ticker-content">
+        <span>★ DR. LORETTA CHEN</span>
+        <span class="ticker-bullet">●</span>
+        <span>GLOBAL EXECUTIVE · TECHNOPRENEUR · EDUCATOR</span>
+        <span class="ticker-bullet">●</span>
+        <span>CO-FOUNDER &amp; CEO, SMOBLER</span>
+        <span class="ticker-bullet">●</span>
+        <span>STRAITS TIMES BESTSELLING AUTHOR</span>
+        <span class="ticker-bullet">●</span>
+        <span>TOP 100 WOMEN OF THE FUTURE</span>
+        <span class="ticker-bullet">●</span>
+        <span>ASIA’S MOST INSPIRING WOMEN</span>
+        <span class="ticker-bullet">●</span>
+        <span>BUILD · LEAD · TEACH · CREATE</span>
+        <span class="ticker-bullet">●</span>
+        <span>FROM MARGINS TO FRONTIER</span>
+      </div>
+      <div class="ticker-content">
+        <span>★ DR. LORETTA CHEN</span>
+        <span class="ticker-bullet">●</span>
+        <span>GLOBAL EXECUTIVE · TECHNOPRENEUR · EDUCATOR</span>
+        <span class="ticker-bullet">●</span>
+        <span>CO-FOUNDER &amp; CEO, SMOBLER</span>
+        <span class="ticker-bullet">●</span>
+        <span>STRAITS TIMES BESTSELLING AUTHOR</span>
+        <span class="ticker-bullet">●</span>
+        <span>TOP 100 WOMEN OF THE FUTURE</span>
+        <span class="ticker-bullet">●</span>
+        <span>ASIA’S MOST INSPIRING WOMEN</span>
+        <span class="ticker-bullet">●</span>
+        <span>BUILD · LEAD · TEACH · CREATE</span>
+        <span class="ticker-bullet">●</span>
+        <span>FROM MARGINS TO FRONTIER</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 2. MINIMAL NAV BAR -->
+  <header class="site-nav">
+    <div class="layout-container">
+      <nav class="nav-inner" aria-label="Main Navigation">
+        <!-- Left Navigation Links -->
+        <ul class="nav-links-left">
+          <li><a href="about.html" class="nav-link-item">About</a></li>
+          <li><a href="build.html" class="nav-link-item">Build</a></li>
+          <li><a href="lead.html" class="nav-link-item">Lead</a></li>
+          <li><a href="teach.html" class="nav-link-item">Teach</a></li>
+          <li><a href="books.html" class="nav-link-item">Books</a></li>
+          <li><a href="speaking.html" class="nav-link-item">Speak</a></li>
+        </ul>
+
+        <!-- Center Brand Script Mark -->
+        <a href="index.html" class="brand-wordmark" aria-label="Dr. Loretta Chen — Home">
+          <span class="brand-script-logo">Loretta Chen</span>
+          <span class="brand-stamp-sub">People · Purpose · Possibilities</span>
+        </a>
+
+        <!-- Right Utility Actions -->
+        <div class="nav-right-actions">
+          <!-- Account Stroke Icon -->
+          <a href="contact.html" class="nav-icon-link" title="Inquiries" aria-label="Inquiries">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="square" stroke-linejoin="miter">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+
+          <!-- Cart Stroke Icon -->
+          <a href="books.html" class="nav-icon-link" title="Books" aria-label="Books">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </a>
+
+          <a href="#contact" class="nav-btn-action">
+            Book Keynote ↗
+          </a>
+          <button class="mobile-menu-btn" id="mobileMenuOpen" aria-label="Open navigation menu">Menu</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <div class="mobile-overlay-header">
+      <span class="brand-script-logo" style="font-size: 28px;">Loretta Chen</span>
+      <button class="mobile-menu-btn" id="mobileMenuClose" style="display: block;">✕ Close</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link" aria-current="page">Home</a></li>
+      <li><a href="about.html" class="mobile-nav-link">About</a></li>
+      <li><a href="build.html" class="mobile-nav-link">Build</a></li>
+      <li><a href="lead.html" class="mobile-nav-link">Lead</a></li>
+      <li><a href="teach.html" class="mobile-nav-link">Teach</a></li>
+      <li><a href="books.html" class="mobile-nav-link">Books</a></li>
+      <li><a href="speaking.html" class="mobile-nav-link">Speak</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <main id="top">
+    <!-- 3+4. HERO SCROLL RIG — knockout headline zooms open to reveal the
+         portrait, which then shrinks right into the manifesto's slot.
+         DOM order is canvas -> manifesto -> frame so that WITHOUT JS this
+         reads as two ordinary stacked sections in normal flow. -->
+    <div class="hero-rig" id="directing">
+      <div class="hero-stage">
+
+        <div class="hero-canvas">
+          <img class="hero-photo-bleed" src="./images/loretta-portrait.jpg" alt="" aria-hidden="true" />
+
+          <!-- The headline is the mask: white rect minus black text = the red
+               panel with letter-shaped holes. Zoom is applied as an SVG
+               transform ATTRIBUTE on #heroKnockoutZoom (vector, stays crisp) —
+               never as a CSS transform on the <svg> (cached raster, goes blurry).
+               viewBox/x/y/font-size below are no-JS defaults; layout() overwrites. -->
+          <svg class="hero-knockout" id="heroKnockout" aria-hidden="true" viewBox="0 0 1440 820"
+            preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <mask id="heroKnockoutMask" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+                <rect x="0" y="0" width="100%" height="100%" fill="#ffffff" />
+                <g id="heroKnockoutZoom">
+                  <text id="knockLine1" class="knockout-text" x="720" y="352" font-size="168" text-anchor="middle"
+                    fill="#000000">DR. LORETTA</text>
+                  <text id="knockLine2" class="knockout-text" x="720" y="500" font-size="168" text-anchor="middle"
+                    fill="#000000">CHEN</text>
+                  <!-- Third line only used on phones (layout() restacks DR. / LORETTA / CHEN) -->
+                  <text id="knockLine3" class="knockout-text" x="720" y="648" font-size="168" text-anchor="middle"
+                    fill="#000000"></text>
+                </g>
+              </mask>
+            </defs>
+            <rect class="knockout-red" x="0" y="0" width="100%" height="100%" mask="url(#heroKnockoutMask)" />
+          </svg>
+
+          <h1 class="visually-hidden">Dr. Loretta Chen</h1>
+
+          <!-- Resolves clamp() on --text-hero so JS need not duplicate the math -->
+          <span id="heroFontProbe" aria-hidden="true"></span>
+
+          <div class="hero-bottom-prompt">
+            <span class="hero-bottom-label">EXPLORE CATALOGUE</span>
+            <a href="#directing" class="hero-down-arrow" aria-label="Scroll to content">V</a>
+          </div>
+
+          <div class="hero-pause-indicator" title="Pause / Play Animation">
+            ||
+          </div>
+        </div>
+
+        <!-- The landing panel IS the Activation Group section: the portrait the
+             hero sequence delivers is that section's portrait, so keeping them
+             separate showed the same photo twice in a row. -->
+        <section class="dark-feature-section directing-pinned">
+          <div class="dark-halftone-overlay"></div>
+          <div class="layout-container">
+            <div class="dark-feature-grid">
+
+              <div class="directing-copy">
+                <span class="dark-feature-tag">Global Executive · Technopreneur · Educator</span>
+                <h2 class="dark-feature-heading">
+                  Builder of ideas, organizations &amp; communities
+                </h2>
+                <p class="dark-feature-body">
+                  Author. Cultural strategist. Loretta operates where technology, leadership, culture and human
+                  possibility intersect — as co-founder and CEO of Smobler, as faculty and executive educator across
+                  Asia, the U.S. and the Middle East, and as the author of six books.
+                </p>
+
+                <div class="dark-stats-grid">
+                  <div>
+                    <div class="dark-stat-num">3</div>
+                    <div class="dark-stat-label">Decades Across Tech, Education &amp; Culture</div>
+                  </div>
+                  <div>
+                    <div class="dark-stat-num">6</div>
+                    <div class="dark-stat-label">Books Published</div>
+                  </div>
+                  <div>
+                    <div class="dark-stat-num">SXSW</div>
+                    <div class="dark-stat-label">Featured Speaker 2022</div>
+                  </div>
+                </div>
+
+                <a href="about.html" class="btn-filled-ink"
+                  style="background-color: var(--color-pure-white); color: var(--color-ink-black); border-color: var(--color-pure-white);">
+                  Explore Her Story ↗
+                </a>
+              </div>
+
+              <div class="portrait-slot">
+                <span class="flavor-sticker">Original Cut</span>
+                <img class="portrait-slot-img" src="./images/loretta-portrait.jpg" alt="Dr. Loretta Chen Portrait" />
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <div class="hero-photo-frame" aria-hidden="true">
+          <img src="./images/loretta-portrait.jpg" alt="" />
+        </div>
+
+        <!-- Rig-mode twin of the sticker above; see .landed-sticker in the CSS -->
+        <span class="flavor-sticker landed-sticker" aria-hidden="true">Original Cut</span>
+
+      </div>
+    </div>
+
+    <!-- 4. SECTION HEADER BLOCK (MANIFESTO) -->
+    <section class="section-manifesto" id="about">
+      <div class="layout-container">
+        <div class="manifesto-seal">★</div>
+        <h2 class="manifesto-lead">
+          FROM MARGINS TO FRONTIER. THE EDGE AS TERRITORY.
+        </h2>
+        <p class="manifesto-body">
+          Women whose stories aren’t told. Emerging technologies before they become mainstream. Students finding their
+          voices. ASEAN leaders beyond the official biography. Hawai‘i’s immigrant histories. Artists and entrepreneurs.
+          Technology for underserved communities. Ideas moving between Asia and America.
+        </p>
+      </div>
+    </section>
+
+    <!-- 5. (merged into the hero rig's landing panel above) -->
+
+    <!-- 6. FOUR WORLDS GRID -->
+    <section class="works-section" id="works">
+      <div class="layout-container">
+
+        <div class="section-title-wrap">
+          <div>
+            <span class="product-sku-meta">Build · Lead · Teach · Create</span>
+            <h2 class="section-title-lg">Four Worlds</h2>
+          </div>
+          <a href="about.html" class="section-subtitle-tag" style="text-decoration: none;">About Loretta ↗</a>
+        </div>
+
+        <div class="product-grid-4col">
+
+          <!-- 01: BUILD -->
+          <article class="product-card-item">
+            <div class="product-image-canvas">
+              <span class="flavor-tag-corner red">Build</span>
+              <img src="./images/metaverse-art.png" alt="Dr. Loretta Chen beside a red wireframe landscape" />
+            </div>
+            <span class="product-sku-meta">01 · Technopreneur</span>
+            <h3 class="product-card-title">Build</h3>
+            <p class="product-card-desc">
+              Smobler, AI, emerging tech, entrepreneurship and venture building.
+            </p>
+            <a href="build.html" class="btn-outline-ink">
+              Build What’s Next ↗
+            </a>
+          </article>
+
+          <!-- 02: LEAD -->
+          <article class="product-card-item">
+            <div class="product-image-canvas">
+              <span class="flavor-tag-corner">Lead</span>
+              <img src="./images/site/bw-full-length.jpg" alt="Dr. Loretta Chen seated on a studio floor"
+                style="object-position: 72% center; object-fit: cover; height: 100%; filter: grayscale(100%);" />
+            </div>
+            <span class="product-sku-meta">02 · Global Executive</span>
+            <h3 class="product-card-title">Lead</h3>
+            <p class="product-card-desc">
+              Strategy, organizational culture, executive leadership and advisory.
+            </p>
+            <a href="lead.html" class="btn-outline-ink">
+              Trust Before Transaction ↗
+            </a>
+          </article>
+
+          <!-- 03: TEACH -->
+          <article class="product-card-item">
+            <div class="product-image-canvas">
+              <span class="flavor-tag-corner red">Teach</span>
+              <img src="./images/loretta-portrait.jpg" alt="Dr. Loretta Chen portrait"
+                style="object-position: top center; object-fit: cover; height: 100%;" />
+            </div>
+            <span class="product-sku-meta">03 · Educator</span>
+            <h3 class="product-card-title">Teach</h3>
+            <p class="product-card-desc">
+              Universities, executive education, students and workshops.
+            </p>
+            <a href="teach.html" class="btn-outline-ink">
+              Where She Teaches ↗
+            </a>
+          </article>
+
+          <!-- 04: CREATE -->
+          <article class="product-card-item">
+            <div class="product-image-canvas">
+              <span class="flavor-tag-corner">Create</span>
+              <img src="./images/mother-cover.png" alt="M/OTHER by Dr. Loretta Chen" />
+            </div>
+            <span class="product-sku-meta">04 · Author &amp; Cultural Strategist</span>
+            <h3 class="product-card-title">Create</h3>
+            <p class="product-card-desc">
+              Books, theatre, culture, speaking and storytelling.
+            </p>
+            <a href="books.html" class="btn-outline-ink">
+              Stories from the Fringe ↗
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SELECTED ENGAGEMENTS TABLE -->
+    <section class="speaking-section" id="speaking">
+      <div class="layout-container">
+
+        <div class="section-title-wrap">
+          <div>
+            <span class="product-sku-meta">Stages · Classrooms · Boardrooms</span>
+            <h2 class="section-title-lg">Selected Engagements</h2>
+          </div>
+          <a href="speaking.html" class="section-subtitle-tag" style="text-decoration: none;">All Engagements ↗</a>
+        </div>
+
+        <div class="punk-table">
+
+          <div class="punk-row">
+            <span class="punk-row-num">01</span>
+            <span class="punk-row-type">Global Keynote</span>
+            <div class="punk-row-title-wrap">
+              <span class="punk-row-title">AI, Humanity &amp; What Comes Next</span>
+              <span class="punk-row-sub">How leaders build with emerging technology without losing sight of
+                humanity.</span>
+            </div>
+            <div class="punk-row-action">
+              <a href="#contact" class="btn-outline-ink" style="width: auto; padding: 10px 18px;">Book Topic ↗</a>
+            </div>
+          </div>
+
+          <div class="punk-row">
+            <span class="punk-row-num">02</span>
+            <span class="punk-row-type">Executive Leadership</span>
+            <div class="punk-row-title-wrap">
+              <span class="punk-row-title">Culture as Invisible Operating System</span>
+              <span class="punk-row-sub">How values, behaviour and trust shape organizations long before strategy
+                does.</span>
+            </div>
+            <div class="punk-row-action">
+              <a href="#contact" class="btn-outline-ink" style="width: auto; padding: 10px 18px;">Book Topic ↗</a>
+            </div>
+          </div>
+
+          <div class="punk-row">
+            <span class="punk-row-num">03</span>
+            <span class="punk-row-type">Entrepreneurship</span>
+            <div class="punk-row-title-wrap">
+              <span class="punk-row-title">Building What’s Next</span>
+              <span class="punk-row-sub">Lessons from founding, scaling and reinventing businesses across markets and
+                technologies.</span>
+            </div>
+            <div class="punk-row-action">
+              <a href="#contact" class="btn-outline-ink" style="width: auto; padding: 10px 18px;">Book Topic ↗</a>
+            </div>
+          </div>
+
+          <div class="punk-row">
+            <span class="punk-row-num">04</span>
+            <span class="punk-row-type">Women &amp; Leadership</span>
+            <div class="punk-row-title-wrap">
+              <span class="punk-row-title">Grit &amp; Grace</span>
+              <span class="punk-row-sub">What women across cultures teach us about ambition, leadership, resilience and
+                influence.</span>
+            </div>
+            <div class="punk-row-action">
+              <a href="#contact" class="btn-outline-ink" style="width: auto; padding: 10px 18px;">Book Topic ↗</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT & BOOKING TERMINAL -->
+    <section class="contact-section" id="contact">
+      <div class="layout-container">
+
+        <div class="contact-grid-wrap">
+
+          <div>
+            <span class="dark-feature-tag"
+              style="border-color: var(--color-ink-black); color: var(--color-ink-black);">Inquiries</span>
+            <h2 class="contact-left-heading">
+              Let’s create what comes next.
+            </h2>
+            <p class="contact-left-body">
+              Available for keynote speeches, executive leadership programmes, AI &amp; emerging technology engagements,
+              strategic advisory, education, creative direction and literary conversations worldwide, on stage or
+              online.
+            </p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <span class="contact-info-label">Direct Inquiries</span>
+                <a href="mailto:loretta@smobler.io" class="contact-info-val">loretta@smobler.io</a>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-label">Speaking &amp; Advisory</span>
+                <a href="tel:8089908300" class="contact-info-val">808-990-8300</a>
+              </div>
+              <div class="contact-info-item">
+                <!-- TODO: books & publishing contact still to be confirmed; M/Other orders address kept until then -->
+                <span class="contact-info-label">Books &amp; Publishing</span>
+                <a href="mailto:Loretta@smobler.io" class="contact-info-val">Loretta@smobler.io</a>
+              </div>
+              <div class="contact-info-item">
+                <span class="contact-info-label">Online</span>
+                <a href="https://smobler.io/" target="_blank" rel="noopener" class="contact-info-val"
+                  style="display: block;">smobler.io ↗</a>
+                <a href="https://www.linkedin.com/in/drlorettachen" target="_blank" rel="noopener"
+                  class="contact-info-val" style="display: block;">LinkedIn / drlorettachen ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-box">
+            <form id="homeInquiry">
+              <div class="form-group">
+                <label class="form-label" for="c-name">Your Name / Organisation</label>
+                <input class="form-input" id="c-name" type="text" placeholder="e.g. Acme Corp / University" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="c-email">Email Address</label>
+                <input class="form-input" id="c-email" type="email" placeholder="name@domain.com" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="c-type">Engagement Type</label>
+                <select class="form-select" id="c-type">
+                  <option>Keynote / Stage Presentation</option>
+                  <option>Executive Leadership</option>
+                  <option>AI &amp; Emerging Technology</option>
+                  <option>Strategic Advisory</option>
+                  <option>College / Executive Education</option>
+                  <option>Creative Direction</option>
+                  <option>Book / Literary Events</option>
+                  <option>Media / Interviews</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="c-message">Event Details &amp; Proposed Dates</label>
+                <textarea class="form-textarea" id="c-message"
+                  placeholder="Dates, location, audience, objectives, in person or online…" required></textarea>
+              </div>
+
+              <button type="submit" class="btn-filled-ink" style="width: 100%;">
+                Start a Conversation ↗
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. FULL-BLEED BLAST RED FOOTER BAND -->
+  <footer class="footer-band">
+    <div class="layout-container">
+      <div class="footer-content">
+        <span class="brand-script-logo" style="font-size: 42px; color: var(--color-cream-paper);">Loretta Chen</span>
+
+        <p class="footer-brand-statement">From margins to frontier.<br />The edge as territory.</p>
+
+        <nav class="footer-links-row" aria-label="Footer Navigation">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="build.html" class="footer-link">Build</a>
+          <a href="lead.html" class="footer-link">Lead</a>
+          <a href="teach.html" class="footer-link">Teach</a>
+          <a href="books.html" class="footer-link">Books</a>
+          <a href="speaking.html" class="footer-link">Speak</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </nav>
+
+        <div class="footer-bottom-bar">
+          <span>© 2026 Dr. Loretta Chen. All Rights Reserved.</span>
+          <span>Build · Lead · Teach · Create</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* No backend yet: open the visitor's mail client with the inquiry filled in */
+    document.getElementById('homeInquiry').addEventListener('submit', e => {
+      e.preventDefault();
+      const v = id => document.getElementById(id).value.trim();
+      const type = document.getElementById('c-type').selectedOptions[0].text;
+      location.href = 'mailto:loretta@smobler.io'
+        + '?subject=' + encodeURIComponent('Inquiry: ' + type + ' — ' + v('c-name'))
+        + '&body=' + encodeURIComponent(v('c-message') + '\n\n— ' + v('c-name') + ' (' + v('c-email') + ')');
+    });
+  </script>
+
+  <!-- Interactive Scripts for Mobile Drawer & Smooth Anchors -->
+  <script>
+    (function () {
+      const openBtn = document.getElementById('mobileMenuOpen');
+      const closeBtn = document.getElementById('mobileMenuClose');
+      const overlay = document.getElementById('mobileOverlay');
+      const links = document.querySelectorAll('.mobile-nav-link');
+
+      /* body { overflow: hidden } does NOT stop Lenis's wheel handling, so the
+         page would keep scrolling behind the open drawer — pause Lenis too. */
+      function openDrawer() {
+        overlay.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+        if (window.__lenis) window.__lenis.stop();
+      }
+
+      function closeDrawer() {
+        overlay.classList.remove('is-active');
+        document.body.style.overflow = '';
+        if (window.__lenis) window.__lenis.start();
+      }
+
+      if (openBtn && closeBtn && overlay) {
+        openBtn.addEventListener('click', openDrawer);
+        closeBtn.addEventListener('click', closeDrawer);
+        links.forEach(l => l.addEventListener('click', closeDrawer));
+      }
+    })();
+  </script>
+
+  <!-- Smooth scroll (Lenis) + the scroll-linked hero rig (Motion).
+       `motion` is the same animation engine as Framer Motion, shipped as
+       vanilla JS — this page has no build step, so we load ES modules. -->
+  <script type="module">
+    import Lenis from 'https://cdn.jsdelivr.net/npm/lenis@1.1.20/+esm';
+    import { scroll } from 'https://cdn.jsdelivr.net/npm/motion@11.18.2/+esm';
+
+    /* ---------------------------------------------------------------- Lenis */
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      syncTouch: false          // keep native momentum on touch
+    });
+    window.__lenis = lenis;     // consumed by the mobile-drawer IIFE above
+    (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
+
+    /* -------------------------------------------------------------- Anchors */
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (!href || href === '#') return;
+        const el = document.querySelector(href);
+        if (!el) return;
+        e.preventDefault();
+        if (reduce.matches) { el.scrollIntoView(); return; }
+        // #directing IS the 320vh rig — land at the END of the pin (the composed
+        // Activation panel), not at the start where nothing has happened yet.
+        const isRig = el.classList.contains('hero-rig');
+        lenis.scrollTo(el, {
+          offset: isRig ? el.offsetHeight - window.innerHeight : 0,
+          duration: isRig ? 2.4 : 1.2
+        });
+      });
+    });
+
+    /* ------------------------------------------------------------------ Rig */
+    const rig = document.getElementById('directing');
+    const stage = document.querySelector('.hero-stage');
+    const canvas = document.querySelector('.hero-canvas');
+    const svg = document.getElementById('heroKnockout');
+    const gZoom = document.getElementById('heroKnockoutZoom');
+    const line1 = document.getElementById('knockLine1');
+    const line2 = document.getElementById('knockLine2');
+    const line3 = document.getElementById('knockLine3');
+    const frame = document.querySelector('.hero-photo-frame');
+    const slot = document.querySelector('.portrait-slot');
+    const copy = document.querySelector('.directing-copy');
+    const sticker = document.querySelector('.landed-sticker');
+    const prompt = document.querySelector('.hero-bottom-prompt');
+    const pauseDot = document.querySelector('.hero-pause-indicator');
+    const probe = document.getElementById('heroFontProbe');
+
+    if (rig && stage && canvas && svg && gZoom && frame && slot && copy && sticker) {
+
+      const clamp01 = v => (v < 0 ? 0 : v > 1 ? 1 : v);
+      const inv = (p, a, b) => (p - a) / (b - a);
+      const lerp = (a, b, t) => a + (b - a) * t;
+      // Smoothstep — gentle at BOTH ends. The house expo-out
+      // cubic-bezier(0.16, 1, 0.3, 1) is right for a short UI move but wrong
+      // for scrub: it travels ~16% of the way in the first 2.5% of the phase,
+      // which snaps the photo off full-bleed the moment the shrink starts.
+      const smooth = t => t * t * (3 - 2 * t);
+
+      const MAX_SCALE = 16, LOG_MAX = Math.log(MAX_SCALE);
+      const FACE_Y = 0.28;          // face position within the source image (0-1)
+      const FACE_TARGET_Y = 0.38;   // where the face should sit in the stage
+
+      let W = 0, H = 0, FX = 0, FY = 0, K0 = 1, TX0 = 0, TY0 = 0, lastP = 0;
+      let lastTZ = -1;
+
+      /* All DOM READS live here. */
+      function layout() {
+        W = canvas.clientWidth;
+        H = canvas.clientHeight;
+        if (!W || !H) return;
+
+        // 1 SVG user unit == 1 CSS px, so baselines use the same numbers as CSS
+        svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+        // Portrait phones: two lines would shrink to ~45px to fit "DR. LORETTA",
+        // so restack as three and let the longest word fill the width instead.
+        const stack = W < 600 && H > W;
+        line1.textContent = stack ? 'DR.' : 'DR. LORETTA';
+        line2.textContent = stack ? 'LORETTA' : 'CHEN';
+        line3.textContent = stack ? 'CHEN' : '';
+        const lines = stack ? [line1, line2, line3] : [line1, line2];
+        const setF = f => lines.forEach(l => l.setAttribute('font-size', f));
+
+        let F = parseFloat(getComputedStyle(probe).fontSize) || 96;
+        setF(F);
+
+        // Auto-fit the longer line rather than using textLength, which would
+        // distort the glyphs to hit an exact width. Stacked mode also grows to fit.
+        const w1 = Math.max(...lines.map(l => l.getComputedTextLength())), maxW = W * 0.92;
+        if (w1 > 0 && (w1 > maxW || stack)) {
+          F *= maxW / w1;
+          setF(F);
+        }
+
+        const cap = F * 0.72;   // Archivo cap-height
+        const adv = F * 0.88;   // --leading-hero
+        const b1 = H * 0.46 - (cap + adv * (lines.length - 1)) / 2 + cap;   // alphabetic baselines
+        lines.forEach((l, i) => { l.setAttribute('x', W / 2); l.setAttribute('y', b1 + adv * i); });
+
+        FX = W / 2;
+        FY = H * FACE_TARGET_Y;
+
+        if (document.documentElement.classList.contains('rig-on')) {
+          const s = slot.getBoundingClientRect();
+          const st = stage.getBoundingClientRect();
+          const rx = s.left - st.left, ry = s.top - st.top;
+
+          frame.style.left = rx + 'px';
+          frame.style.top = ry + 'px';
+          frame.style.width = s.width + 'px';
+          frame.style.height = s.height + 'px';
+
+          K0 = Math.max(W / s.width, H / s.height);
+          const coverH = s.height * K0;
+          TX0 = W / 2 - (rx + s.width / 2);
+          TY0 = (H * FACE_TARGET_Y + (0.5 - FACE_Y) * coverH) - (ry + s.height / 2);
+
+          // Mirror .flavor-sticker's top:-16 / right:-16, but in stage space
+          sticker.style.top = (ry - 16) + 'px';
+          sticker.style.right = (W - (rx + s.width) - 16) + 'px';
+
+          render(lastP);
+        }
+      }
+
+      /* All DOM WRITES live here. Pure in p, so reverse scroll is symmetric. */
+      function render(p) {
+        lastP = p;
+
+        // Prompt out
+        const tP = clamp01(inv(p, 0.00, 0.07));
+        prompt.style.opacity = 1 - tP;
+        prompt.style.transform = `translate(-50%, ${-14 * tP}px)`;  // keep the -50%
+        prompt.style.pointerEvents = tP >= 1 ? 'none' : 'auto';
+        pauseDot.style.opacity = 1 - tP;
+
+        // Red burn-off — the last slivers between letters go by crossfade,
+        // because clearing them geometrically would need ~60x scale.
+        const red = 1 - smooth(clamp01(inv(p, 0.30, 0.45)));
+        svg.style.opacity = red;
+        svg.style.visibility = red <= 0.002 ? 'hidden' : 'visible';
+
+        // Gate on tZ, NOT on red: gating on red leaves a stale transform when a
+        // fast scroll or anchor jump lands past the burn-off before tZ hits 1,
+        // and reverse scroll would then fade red back in over the wrong scale.
+        // Past 0.44 tZ saturates, so this still writes nothing while hidden.
+        const tZ = clamp01(inv(p, 0.00, 0.44));
+        if (tZ !== lastTZ) {
+          lastTZ = tZ;
+          // Exponential => constant PERCEIVED zoom rate. Linear would feel
+          // fast then stall. Written as an SVG attribute, so it stays vector.
+          const S = Math.exp(tZ * LOG_MAX);
+          gZoom.setAttribute('transform',
+            `translate(${FX} ${FY}) scale(${S}) translate(${-FX} ${-FY})`);
+        }
+
+        // Photo: full-bleed -> slot. Uniform scale + translate off the rest
+        // state, so no layout, no repaint, no crop shift. Continuous at 0.54.
+        // 2% overscan on the full-bleed state: without it the first frames of
+        // the shrink leave a 1px cream sliver at the edges, which reads as a
+        // rendering seam rather than as the photo deliberately pulling in.
+        const tS = clamp01(inv(p, 0.54, 0.94));
+        const e = smooth(tS);
+        const KF = K0 * 1.02;
+        const K = tS > 0 ? lerp(KF, 1, e) : KF * lerp(1.12, 1.0, smooth(tZ));
+        frame.style.transform =
+          `translate3d(${TX0 * (1 - e)}px, ${TY0 * (1 - e)}px, 0) scale(${K})`;
+
+        slot.style.opacity = clamp01(inv(p, 0.66, 0.86));
+        // Lands last, once the photo has essentially stopped moving — otherwise
+        // it reads as a tag floating over a still-travelling picture.
+        sticker.style.opacity = smooth(clamp01(inv(p, 0.90, 0.99)));
+
+        const tT = smooth(clamp01(inv(p, 0.70, 0.92)));
+        copy.style.opacity = tT;
+        copy.style.transform = `translateY(${(1 - tT) * 28}px)`;
+      }
+
+      let cleanup = null;
+      const wide = matchMedia('(min-width: 769px)');
+
+      function sync() {
+        // 320vh of sticky + a per-frame SVG mask re-render is the workload
+        // mobile Safari handles worst, and URL-bar height changes would refire
+        // layout() mid-sequence. Below 769px the knockout stays, the pin goes.
+        const on = wide.matches && !reduce.matches;
+        document.documentElement.classList.toggle('rig-on', on);
+
+        if (cleanup) { cleanup(); cleanup = null; }
+        layout();
+
+        if (on) {
+          cleanup = scroll(p => render(p), {
+            target: rig,
+            offset: ['start start', 'end end']
+          });
+        } else {
+          // Drop inline state left over from rig mode
+          [prompt, pauseDot, copy, slot, sticker].forEach(el => {
+            el.style.opacity = '';
+            el.style.transform = '';
+            el.style.pointerEvents = '';
+          });
+          svg.style.opacity = '';
+          svg.style.visibility = '';
+          frame.style.transform = '';
+          gZoom.removeAttribute('transform');
+          reduce.matches ? lenis.stop() : lenis.start();
+        }
+      }
+
+      // document.fonts.ready alone is NOT enough — it only resolves for faces
+      // already in use. Race a timeout so an offline file:// open still lays out.
+      await Promise.race([
+        Promise.all([document.fonts.load('900 100px Archivo'), document.fonts.ready]),
+        new Promise(r => setTimeout(r, 3000))
+      ]);
+
+      sync();
+      document.documentElement.classList.add('is-ready');
+
+      new ResizeObserver(() => layout()).observe(stage);
+      wide.addEventListener('change', sync);
+      reduce.addEventListener('change', sync);
+    }
+  </script>
+</body>
+
+</html>
