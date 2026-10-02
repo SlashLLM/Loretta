@@ -71,3 +71,26 @@ if (form) {
     if (status) status.classList.add('is-shown');
   });
 }
+
+/* ------------------------------------------------------ Video facades */
+// YouTube refuses embeds that arrive without a referrer (Error 153), which is
+// what a file:// page sends. Load the player in place only on a real origin;
+// otherwise let the link open the video on YouTube.
+if (location.protocol === 'http:' || location.protocol === 'https:') {
+  document.querySelectorAll('.video-facade[data-yt]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const frame = document.createElement('iframe');
+      frame.src = `https://www.youtube-nocookie.com/embed/${link.dataset.yt}?autoplay=1`;
+      frame.title = link.dataset.title || 'YouTube video';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.allowFullscreen = true;
+      const box = document.createElement('div');
+      box.className = 'video-frame';
+      box.appendChild(frame);
+      link.replaceWith(box);
+      frame.focus();
+    });
+  });
+}
