@@ -473,7 +473,6 @@ main, .site-footer-wrap { position: relative; z-index: 2; }
 .punk-row-title { font-family: var(--font-hero); font-size: 20px; font-weight: var(--weight-black); letter-spacing: 0.01em; line-height: 1.15; text-transform: uppercase; }
 .punk-row-sub { font-size: 13px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--color-muted-ink); }
 .punk-row-action { text-align: right; }
-.press-table .punk-row-sub { text-transform: none; font-size: 14px; line-height: 1.5; }
 
 /* ==========================================================================
    CATALOGUE CARDS
@@ -508,6 +507,15 @@ main, .site-footer-wrap { position: relative; z-index: 2; }
   text-transform: uppercase; padding: 4px 8px;
 }
 .flavor-tag-corner.red { background-color: var(--color-blast-red); color: var(--color-cream-paper); }
+.ribbon-corner {
+  position: absolute; top: 44px; right: -66px; z-index: 3; width: 260px;
+  transform: rotate(45deg); text-align: center;
+  background-color: var(--color-ink-black); color: var(--color-cream-paper);
+  border-top: 2px solid var(--color-blast-red); border-bottom: 2px solid var(--color-blast-red);
+  font-size: 9px; font-weight: var(--weight-black); letter-spacing: 0.1em;
+  text-transform: uppercase; line-height: 1.4; padding: 5px 0;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+}
 .product-sku-meta { font-size: 11px; font-weight: var(--weight-bold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; opacity: 0.7; }
 .product-card-title { font-family: var(--font-hero); font-size: var(--text-heading-sm); font-weight: var(--weight-black); line-height: 1.05; text-transform: uppercase; margin-bottom: 12px; }
 .product-card-desc { font-size: var(--text-body-sm); line-height: 1.55; letter-spacing: var(--tracking-body-sm); text-transform: uppercase; margin-bottom: 20px; flex-grow: 1; }
@@ -536,6 +544,19 @@ main, .site-footer-wrap { position: relative; z-index: 2; }
   letter-spacing: 0.15em; text-transform: uppercase;
   border-top: 1px solid currentColor; padding-top: 10px;
 }
+/* Linked press features sitting in the quote wall */
+.quote-card.is-news {
+  color: inherit; text-decoration: none; justify-content: flex-start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.quote-card.is-news:nth-child(3n) { color: var(--color-cream-paper); }
+.quote-card.is-news:hover { transform: rotate(0deg) translate(-3px, -3px); box-shadow: 6px 6px 0 var(--color-ink-black); }
+.quote-card.is-news:nth-child(3n):hover { box-shadow: 6px 6px 0 var(--color-blast-red); }
+.quote-card.is-news .quote-text { display: block; font-size: clamp(19px, 1.7vw, 23px); line-height: 1.08; }
+.quote-card.is-news .quote-text::before { content: none; }
+.quote-desc { display: block; margin-top: 12px; font-size: 14px; line-height: 1.5; opacity: 0.85; flex-grow: 1; }
+.quote-card.is-news .quote-src { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.quote-cta { white-space: nowrap; }
 
 /* ==========================================================================
    SCHEDULE (the "perfect weekend")
